@@ -8,12 +8,8 @@
 import SwiftUI
 
 struct MainAlarmView: View {
-    var body: some View {
-        List(0 ..< 20) { item in
-            HomeRow()
-        }
-        .listStyle(InsetGroupedListStyle())
-        .navigationTitle("Alarms")
+    var body: some View{
+        Text("")
     }
 }
 

@@ -17,6 +17,8 @@
 		1BD6B47F25BB78C000596CA8 /* HomeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD6B47E25BB78C000596CA8 /* HomeRow.swift */; };
 		1BD6B48425BB84F100596CA8 /* MainAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD6B48325BB84F100596CA8 /* MainAlarmView.swift */; };
 		1BD6B4CE25C1D77900596CA8 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD6B4CD25C1D77900596CA8 /* Sidebar.swift */; };
+		1BD6B4D325C1E56F00596CA8 /* AlarmItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD6B4D225C1E56E00596CA8 /* AlarmItem.swift */; };
+		1BD6B4E325C1E7C300596CA8 /* AlarmList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD6B4E225C1E7C300596CA8 /* AlarmList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		1BD6B47E25BB78C000596CA8 /* HomeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRow.swift; sourceTree = "<group>"; };
 		1BD6B48325BB84F100596CA8 /* MainAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAlarmView.swift; sourceTree = "<group>"; };
 		1BD6B4CD25C1D77900596CA8 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
+		1BD6B4D225C1E56E00596CA8 /* AlarmItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmItem.swift; sourceTree = "<group>"; };
+		1BD6B4E225C1E7C300596CA8 /* AlarmList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,9 +108,8 @@
 			isa = PBXGroup;
 			children = (
 				1B851D6E255B48F600609A98 /* FirstProjectApp.swift */,
-				1B851D70255B48F600609A98 /* ContentView.swift */,
-				1BD6B4CD25C1D77900596CA8 /* Sidebar.swift */,
-				1BD6B47E25BB78C000596CA8 /* HomeRow.swift */,
+				1BD6B4D725C1E6F100596CA8 /* Navigation */,
+				1BD6B4DE25C1E72400596CA8 /* Items */,
 				1BD6B48325BB84F100596CA8 /* MainAlarmView.swift */,
 				1B851D72255B48FA00609A98 /* Assets.xcassets */,
 				1B851D9C255B4BBD00609A98 /* Main.storyboard */,
@@ -140,6 +143,25 @@
 				1B851D8D255B48FA00609A98 /* Info.plist */,
 			);
 			path = FirstProjectUITests;
+			sourceTree = "<group>";
+		};
+		1BD6B4D725C1E6F100596CA8 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				1BD6B4CD25C1D77900596CA8 /* Sidebar.swift */,
+				1B851D70255B48F600609A98 /* ContentView.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		1BD6B4DE25C1E72400596CA8 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				1BD6B47E25BB78C000596CA8 /* HomeRow.swift */,
+				1BD6B4D225C1E56E00596CA8 /* AlarmItem.swift */,
+				1BD6B4E225C1E7C300596CA8 /* AlarmList.swift */,
+			);
+			path = Items;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,9 +294,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BD6B4D325C1E56F00596CA8 /* AlarmItem.swift in Sources */,
 				1BD6B4CE25C1D77900596CA8 /* Sidebar.swift in Sources */,
 				1B851D71255B48F600609A98 /* ContentView.swift in Sources */,
 				1BD6B47F25BB78C000596CA8 /* HomeRow.swift in Sources */,
+				1BD6B4E325C1E7C300596CA8 /* AlarmList.swift in Sources */,
 				1B851D6F255B48F600609A98 /* FirstProjectApp.swift in Sources */,
 				1BD6B48425BB84F100596CA8 /* MainAlarmView.swift in Sources */,
 			);

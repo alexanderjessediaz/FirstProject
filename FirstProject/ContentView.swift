@@ -11,24 +11,30 @@ struct ContentView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 4.0) {
             Spacer()
-            HStack {
-                HStack {
-                    Spacer()
-                    Image("Illustration 1")
+            VStack {
+                Spacer()
+                VStack {
+                    Image("Alarm Logov4")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
+                        .cornerRadius(20.0)
+                        .shadow(radius: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                        .imageScale(/*@START_MENU_TOKEN@*/.large/*@END_MENU_TOKEN@*/)
+                        .opacity(/*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/)
+                        
+                        
                 }
                 Spacer()
             }
-            Text("Placeholder").fontWeight(.bold)
+            Text("AlarmApp").fontWeight(.bold)
                 .foregroundColor(.white)
-            Text("Placeholder").font(.footnote)
+            Text("AlarmApp").font(.footnote)
                 .foregroundColor(.white)
         }
         .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-        .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.blue/*@END_MENU_TOKEN@*/)
-        .cornerRadius(/*@START_MENU_TOKEN@*/20.0/*@END_MENU_TOKEN@*/)
-        .shadow(radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
+        .background(Color.purple)
+        .cornerRadius(20.0)
+        .shadow(radius: 10)
     }
 
         
@@ -40,7 +46,7 @@ struct ContentView_Previews: PreviewProvider {
             ContentView()
                 .preferredColorScheme(.dark)
             ContentView()
-                .previewLayout(.fixed(width: /*@START_MENU_TOKEN@*/200.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/200.0/*@END_MENU_TOKEN@*/))
+                .previewLayout(.fixed(width: 200.0, height: 200.0))
                 .preferredColorScheme(.dark)
         }
     }

@@ -13,15 +13,21 @@ struct MainAlarmView: View {
     
     var body: some View{
         ZStack {
-            AlarmItem()
-                .matchedGeometryEffect(id: "Card", in:
-                                        namespace, isSource: !show)
-                .frame(width: 335, height: 250)
+            ScrollView {
+                VStack (spacing: 20) {
+                    AlarmItem()
+                        .matchedGeometryEffect(id: "Card", in:
+                                                namespace, isSource:!show)
+                        .frame(width: 335, height: 250)
+                    AlarmItem()
+                        .frame(width: 335, height: 250)
+                }
+                .frame(maxWidth: .infinity)
+            }
             if show {
                 ScrollView {
                     AlarmItem()
-                        .matchedGeometryEffect(id:
-                                                "Card", in:namespace)
+                        .matchedGeometryEffect(id: "Card", in:namespace)
                         .frame(height: 300)
                     VStack {
                         ForEach(0 ..< 20) { item in
@@ -30,7 +36,16 @@ struct MainAlarmView: View {
                     }
                     .padding()
                 }
-                .transition(.opacity)
+                .background(Color("Background 1"))
+                .transition(
+                    .asymmetric(
+                        insertion: AnyTransition
+                            .opacity
+                            .animation(Animation.spring().delay(0.3)),
+                        removal: AnyTransition
+                            .opacity
+                            .animation(.spring())))
+                
                 .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             }
         }

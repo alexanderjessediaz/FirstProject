@@ -15,19 +15,20 @@ struct MainAlarmView: View {
         ZStack {
             ScrollView {
                 VStack (spacing: 20) {
-                    AlarmItem()
-                        .matchedGeometryEffect(id: "Card", in:
-                                                namespace, isSource:!show)
-                        .frame(width: 335, height: 250)
-                    AlarmItem()
-                        .frame(width: 335, height: 250)
+                    ForEach(alarams) { item in
+                        AlarmItem(alarm: item)
+                            .matchedGeometryEffect(id: item.id, in:
+                                                    namespace, isSource:!show)
+                            .frame(width: 335, height: 250)
+                    }
+                    
                 }
                 .frame(maxWidth: .infinity)
             }
             if show {
                 ScrollView {
-                    AlarmItem()
-                        .matchedGeometryEffect(id: "Card", in:namespace)
+                    AlarmItem(alarm: alarams[0])
+                        .matchedGeometryEffect(id: alarams[0].id, in:namespace)
                         .frame(height: 300)
                     VStack {
                         ForEach(0 ..< 20) { item in

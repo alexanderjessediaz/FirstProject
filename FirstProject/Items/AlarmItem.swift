@@ -8,33 +8,26 @@
 import SwiftUI
 
 struct AlarmItem: View {
+    var alarm: SelectedAlarm = alarams[0]
     var body: some View {
         VStack(alignment: .leading, spacing: 4.0) {
             Spacer()
-            VStack {
+            HStack {
                 Spacer()
-                VStack {
-                    Image("Alarm Logov4")
+                Image(alarm.image)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .cornerRadius(20.0)
-                        .shadow(radius: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
-                        .imageScale(/*@START_MENU_TOKEN@*/.large/*@END_MENU_TOKEN@*/)
-                        .opacity(/*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/)
-                        
-                        
-                }
                 Spacer()
             }
-            Text("AlarmApp").fontWeight(.bold)
+            Text(alarm.title).fontWeight(.bold)
                 .foregroundColor(.white)
-            Text("AlarmApp").font(.footnote)
+            Text(alarm.subtitle).font(.footnote)
                 .foregroundColor(.white)
         }
         .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-        .background(Color.purple)
-        .cornerRadius(20.0)
-        .shadow(radius: 10)
+        .background(alarm.color)
+        .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
+        .shadow(color: alarm.color.opacity(0.3), radius: 20, x:0, y:10)
     }
 }
 

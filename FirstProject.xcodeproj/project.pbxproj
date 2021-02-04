@@ -111,9 +111,9 @@
 			children = (
 				1B851D6E255B48F600609A98 /* FirstProjectApp.swift */,
 				1BD6B4D725C1E6F100596CA8 /* Navigation */,
+				1BD9EA4425CC99ED00E83A80 /* Model */,
 				1BD6B4DE25C1E72400596CA8 /* Items */,
 				1BD6B48325BB84F100596CA8 /* MainAlarmView.swift */,
-				1BD9EA3F25CB440800E83A80 /* SelectedAlarm.swift */,
 				1B851D72255B48FA00609A98 /* Assets.xcassets */,
 				1B851D9C255B4BBD00609A98 /* Main.storyboard */,
 				1B851D77255B48FA00609A98 /* Info.plist */,
@@ -165,6 +165,14 @@
 				1BD6B4E225C1E7C300596CA8 /* AlarmList.swift */,
 			);
 			path = Items;
+			sourceTree = "<group>";
+		};
+		1BD9EA4425CC99ED00E83A80 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1BD9EA3F25CB440800E83A80 /* SelectedAlarm.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

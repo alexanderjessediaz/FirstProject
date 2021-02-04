@@ -10,6 +10,8 @@ import SwiftUI
 struct MainAlarmView: View {
     @State var show = false
     @Namespace var namespace
+    @State var selectedItem: SelectedAlarm? = nil
+    @State var isDisabled = false
     
     var body: some View{
         ZStack {
@@ -20,16 +22,34 @@ struct MainAlarmView: View {
                             .matchedGeometryEffect(id: item.id, in:
                                                     namespace, isSource:!show)
                             .frame(width: 335, height: 250)
+                            .onTapGesture {
+                                withAnimation {
+                                    show.toggle()
+                                    selectedItem = item
+                                    isDisabled = true
+                                }
+                            }
+                            .disabled(isDisabled)
                     }
                     
                 }
                 .frame(maxWidth: .infinity)
             }
-            if show {
+            if selectedItem != nil {
                 ScrollView {
-                    AlarmItem(alarm: alarams[0])
-                        .matchedGeometryEffect(id: alarams[0].id, in:namespace)
+                    AlarmItem(alarm: selectedItem!)
+                        .matchedGeometryEffect(id: selectedItem!.id,in:namespace)
                         .frame(height: 300)
+                        .onTapGesture {
+                            withAnimation {
+                                show.toggle()
+                                selectedItem = nil
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+                                    isDisabled = false
+                                }
+                                
+                            }
+                        }
                     VStack {
                         ForEach(0 ..< 20) { item in
                             HomeRow()
@@ -50,12 +70,7 @@ struct MainAlarmView: View {
                 .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             }
         }
-        .onTapGesture {
-            withAnimation {
-                show.toggle()
-            }
-            
-        }
+       
     }
 }
 

@@ -16,12 +16,16 @@ struct MainAlarmView: View {
     var body: some View{
         ZStack {
             ScrollView {
-                VStack (spacing: 20) {
+                LazyVGrid (
+                    columns: [
+                        GridItem(.adaptive(minimum:200), spacing: 16)
+                    ],
+                    spacing: 16
+                ) {
                     ForEach(alarams) { item in
                         AlarmItem(alarm: item)
-                            .matchedGeometryEffect(id: item.id, in:
-                                                    namespace, isSource:!show)
-                            .frame(width: 335, height: 250)
+                            .matchedGeometryEffect(id: item.id, in: namespace, isSource:!show)
+                            .frame(height: 250)
                             .onTapGesture {
                                 withAnimation {
                                     show.toggle()
@@ -33,6 +37,7 @@ struct MainAlarmView: View {
                     }
                     
                 }
+                .padding(16)
                 .frame(maxWidth: .infinity)
             }
             if selectedItem != nil {

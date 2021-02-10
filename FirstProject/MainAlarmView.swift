@@ -17,62 +17,59 @@ struct MainAlarmView: View {
         ZStack {
             ScrollView {
                 LazyVGrid (
-                    columns: [
-                        GridItem(.adaptive(minimum:200), spacing: 16)
-                    ],
+                    columns: [GridItem(.adaptive(minimum: 200), spacing: 16)],
                     spacing: 16
                 ) {
                     ForEach(alarams) { item in
-                        AlarmItem(alarm: item)
-                            .matchedGeometryEffect(id: item.id, in: namespace, isSource:!show)
-                            .frame(height: 250)
-                            .onTapGesture {
-                                withAnimation {
-                                    show.toggle()
-                                    selectedItem = item
-                                    isDisabled = true
+                        VStack {
+                            AlarmItem(alarm: item)
+                                .matchedGeometryEffect(id: item.id, in: namespace, isSource:!show)
+                                .frame(height: 250)
+                                .onTapGesture {
+                                    withAnimation(.spring()) {
+                                        show.toggle()
+                                        selectedItem = item
+                                        isDisabled = true
+                                    }
                                 }
-                            }
-                            .disabled(isDisabled)
+                                .disabled(isDisabled)
+                        }
+                        .matchedGeometryEffect(id: "container\(item.id)", in: namespace, isSource:!show)
                     }
                     
                 }
                 .padding(16)
                 .frame(maxWidth: .infinity)
             }
+            .zIndex(/*@START_MENU_TOKEN@*/1.0/*@END_MENU_TOKEN@*/)
             if selectedItem != nil {
-                ScrollView {
-                    AlarmItem(alarm: selectedItem!)
-                        .matchedGeometryEffect(id: selectedItem!.id,in:namespace)
-                        .frame(height: 300)
-                        .onTapGesture {
-                            withAnimation {
-                                show.toggle()
-                                selectedItem = nil
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
-                                    isDisabled = false
+                VStack {
+                    ScrollView {
+                        AlarmItem(alarm: selectedItem!)
+                            .matchedGeometryEffect(id: selectedItem!.id,in: namespace)
+                            .frame(height: 300)
+                            .onTapGesture {
+                                withAnimation {
+                                    show.toggle()
+                                    selectedItem = nil
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+                                        isDisabled = false
+                                    }
                                 }
-                                
+                            }
+                        VStack {
+                            ForEach(0 ..< 20) { item in
+                                HomeRow()
                             }
                         }
-                    VStack {
-                        ForEach(0 ..< 20) { item in
-                            HomeRow()
-                        }
+                        .padding()
                     }
-                    .padding()
                 }
                 .background(Color("Background 1"))
-                .transition(
-                    .asymmetric(
-                        insertion: AnyTransition
-                            .opacity
-                            .animation(Animation.spring().delay(0.3)),
-                        removal: AnyTransition
-                            .opacity
-                            .animation(.spring())))
-                
+                .clipShape(RoundedRectangle(cornerRadius: 22 ,style: .continuous))
+                .matchedGeometryEffect(id: "container\(selectedItem!.id)", in: namespace)
                 .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                .zIndex(2)
             }
         }
        

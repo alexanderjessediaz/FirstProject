@@ -8,20 +8,23 @@
 import SwiftUI
 
 struct HomeRow: View {
+    
+    var item: SelectedAlarm = alarams[0]
     var body: some View {
         HStack(alignment: .top) {
-            Image(systemName: "alarm")
+            Image(item.image)
                 .renderingMode(.original)
+                .resizable()
                 .frame(width: 48.0, height: 48.0)
-                .imageScale(.large)
-                .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.blue/*@END_MENU_TOKEN@*/)
+                .imageScale(.small)
+                .background(item.color)
                 .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                 
             VStack(alignment: .leading, spacing: 4.0) {
-                Text("AlarmApp")
+                Text(item.title)
                     .font(.subheadline)
                     .bold()
-                Text("By AJ Diaz")
+                Text(item.subtitle)
                     .font(.subheadline)
                     .foregroundColor(.secondary)
             }

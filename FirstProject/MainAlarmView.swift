@@ -43,32 +43,22 @@ struct MainAlarmView: View {
             }
             .zIndex(/*@START_MENU_TOKEN@*/1.0/*@END_MENU_TOKEN@*/)
             if selectedItem != nil {
-                VStack {
-                    ScrollView {
-                        AlarmItem(alarm: selectedItem!)
-                            .matchedGeometryEffect(id: selectedItem!.id,in: namespace)
-                            .frame(height: 300)
-                            .onTapGesture {
-                                withAnimation {
-                                    show.toggle()
-                                    selectedItem = nil
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
-                                        isDisabled = false
-                                    }
+                ZStack(alignment: .topTrailing) {
+                    AlarmDetail(alarm: selectedItem!, namespace: namespace)
+                    
+                    
+                    CloseButton()
+                        .padding(.trailing, 16)
+                        .onTapGesture {
+                            withAnimation {
+                                show.toggle()
+                                selectedItem = nil
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
+                                    isDisabled = false
                                 }
                             }
-                        VStack {
-                            ForEach(0 ..< 20) { item in
-                                HomeRow()
-                            }
                         }
-                        .padding()
-                    }
                 }
-                .background(Color("Background 1"))
-                .clipShape(RoundedRectangle(cornerRadius: 22 ,style: .continuous))
-                .matchedGeometryEffect(id: "container\(selectedItem!.id)", in: namespace)
-                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                 .zIndex(2)
             }
         }

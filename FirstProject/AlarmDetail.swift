@@ -12,6 +12,11 @@ struct AlarmDetail: View {
     var namespace: Namespace.ID
     
     var body: some View {
+        content
+        .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+    }
+    
+    var content: some View {
         VStack {
             ScrollView {
                 AlarmItem(alarm: alarm)
@@ -30,7 +35,6 @@ struct AlarmDetail: View {
         .background(Color("Background 1"))
         .clipShape(RoundedRectangle(cornerRadius: 22 ,style: .continuous))
         .matchedGeometryEffect(id: "container\(alarm.id)", in: namespace)
-        .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
     }
 }
 

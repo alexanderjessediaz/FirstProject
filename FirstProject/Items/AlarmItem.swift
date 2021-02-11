@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AlarmItem: View {
     var alarm: SelectedAlarm = alarams[0]
+    var cornerRadius: CGFloat = 22
     var body: some View {
         VStack(alignment: .leading, spacing: 4.0) {
             Spacer()
@@ -26,7 +27,7 @@ struct AlarmItem: View {
         }
         .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
         .background(alarm.color)
-        .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
+        .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
         .shadow(color: alarm.color.opacity(0.3), radius: 20, x:0, y:10)
     }
 }

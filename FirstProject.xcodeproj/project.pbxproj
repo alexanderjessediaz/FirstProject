@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1B42A98025D49B7A0068F1E6 /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B42A97F25D49B7A0068F1E6 /* CloseButton.swift */; };
 		1B42A98525D5C0620068F1E6 /* AlarmDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B42A98425D5C0620068F1E6 /* AlarmDetail.swift */; };
+		1B42A9AC25D5D39B0068F1E6 /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B42A9AB25D5D39B0068F1E6 /* VisualEffectBlur.swift */; };
 		1B851D6F255B48F600609A98 /* FirstProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B851D6E255B48F600609A98 /* FirstProjectApp.swift */; };
 		1B851D71255B48F600609A98 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B851D70255B48F600609A98 /* ContentView.swift */; };
 		1B851D73255B48FA00609A98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B851D72255B48FA00609A98 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		1B42A97F25D49B7A0068F1E6 /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		1B42A98425D5C0620068F1E6 /* AlarmDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmDetail.swift; sourceTree = "<group>"; };
+		1B42A9AB25D5D39B0068F1E6 /* VisualEffectBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
 		1B851D6B255B48F600609A98 /* FirstProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirstProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B851D6E255B48F600609A98 /* FirstProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstProjectApp.swift; sourceTree = "<group>"; };
 		1B851D70255B48F600609A98 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 		1B851D6D255B48F600609A98 /* FirstProject */ = {
 			isa = PBXGroup;
 			children = (
+				1B42A9AB25D5D39B0068F1E6 /* VisualEffectBlur.swift */,
 				1B851D6E255B48F600609A98 /* FirstProjectApp.swift */,
 				1BD6B4D725C1E6F100596CA8 /* Navigation */,
 				1BD9EA4425CC99ED00E83A80 /* Model */,
@@ -313,6 +316,7 @@
 			files = (
 				1BD6B4D325C1E56F00596CA8 /* AlarmItem.swift in Sources */,
 				1BD6B4CE25C1D77900596CA8 /* Sidebar.swift in Sources */,
+				1B42A9AC25D5D39B0068F1E6 /* VisualEffectBlur.swift in Sources */,
 				1B851D71255B48F600609A98 /* ContentView.swift in Sources */,
 				1B42A98025D49B7A0068F1E6 /* CloseButton.swift in Sources */,
 				1BD6B47F25BB78C000596CA8 /* HomeRow.swift in Sources */,

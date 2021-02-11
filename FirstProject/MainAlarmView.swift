@@ -25,30 +25,44 @@ struct MainAlarmView: View {
     
     var content: some View {
         ScrollView {
-            LazyVGrid (
-                columns: [GridItem(.adaptive(minimum: 200), spacing: 16)],
-                spacing: 16
-            ) {
-                ForEach(alarams) { item in
-                    VStack {
-                        AlarmItem(alarm: item)
-                            .matchedGeometryEffect(id: item.id, in: namespace, isSource:!show)
-                            .frame(height: 250)
-                            .onTapGesture {
-                                withAnimation(.spring()) {
-                                    show.toggle()
-                                    selectedItem = item
-                                    isDisabled = true
-                                }
-                            }
-                            .disabled(isDisabled)
-                    }
-                    .matchedGeometryEffect(id: "container\(item.id)", in: namespace, isSource:!show)
-                }
+            VStack(spacing: 0) {
+                Text("Alarms")
+                    .font(.largeTitle)
+                    .bold()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 16)
+                    .padding(.top, 54)
                 
+                LazyVGrid (
+                    columns: [GridItem(.adaptive(minimum: 200), spacing: 16)],
+                    spacing: 16
+                ) {
+                    ForEach(alarams) { item in
+                        VStack {
+                            AlarmItem(alarm: item)
+                                .matchedGeometryEffect(id: item.id, in: namespace, isSource:!show)
+                                .frame(height: 250)
+                                .onTapGesture {
+                                    withAnimation(.spring()) {
+                                        show.toggle()
+                                        selectedItem = item
+                                        isDisabled = true
+                                    }
+                                }
+                                .disabled(isDisabled)
+                        }
+                        .matchedGeometryEffect(id: "container\(item.id)", in: namespace, isSource:!show)
+                    }
+                    
+                }
+                .padding(16)
+                .frame(maxWidth: .infinity)
+                
+                ForEach(alarams) { item in
+                    HomeRow(item: item)
+                }
             }
-            .padding(16)
-            .frame(maxWidth: .infinity)
+            
         }
         .zIndex(/*@START_MENU_TOKEN@*/1.0/*@END_MENU_TOKEN@*/)
     }

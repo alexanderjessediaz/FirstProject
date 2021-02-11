@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    
+    @ViewBuilder
     var body: some View {
-        Sidebar()
+        if horizontalSizeClass == .compact {
+            
+        } else {
+            Sidebar()
+        }
     }
-
-        
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -24,3 +29,5 @@ struct ContentView_Previews: PreviewProvider {
         }
     }
 }
+    
+
